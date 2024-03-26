@@ -54,7 +54,7 @@ app.post("/MakeHTML", (req, res) => {
     };
 
     criaTemplate();
-    res.redirect("http://localhost:3000/download");
+    res.redirect("https://emailmaker-server.onrender.com/download");
 });
 
 //compila o HTML e disponibiliza download
