@@ -75,7 +75,7 @@ app.get("/download", (req, res) => {
 });
 
 
-app.get('/components', (req, res) => {
+/*app.get('/components', (req, res) => {
    // Carrega o arquivo JSON usando fs.readFile
    fs.readFile(path.join(__dirname, 'components.json'), 'utf8', (err, data) => {
      if (err) {
@@ -89,7 +89,7 @@ app.get('/components', (req, res) => {
      // Envie os dados JSON de volta como resposta
      res.json(jsonData);
    });
- });
+ });*/
 
 
 const PORT = process.env.PORT || 3000;
