@@ -6,6 +6,7 @@ const app = express();
 const nunjucks = require("nunjucks");
 const path = require("path");
 const templatesDir = path.join(__dirname, "views");
+//const serverless = require("serverless-http");
 app.use(cors());
 app.use(express.text());
 app.use(express.json());
@@ -137,25 +138,10 @@ app.get("/preview", (req, res) => {
    );
 });
 
-
-/*app.get('/components', (req, res) => {
-   // Carrega o arquivo JSON usando fs.readFile
-   fs.readFile(path.join(__dirname, 'components.json'), 'utf8', (err, data) => {
-     if (err) {
-       console.error('Erro ao ler o arquivo JSON:', err);
-       return res.status(500).send('Erro interno do servidor');
-     }
- 
-     // Converte o conteúdo do arquivo JSON em um objeto JavaScript
-     const jsonData = JSON.parse(data);
- 
-     // Envie os dados JSON de volta como resposta
-     res.json(jsonData);
-   });
- });*/
-
-
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
+
+
+//module.exports.handler = serverless(app);
