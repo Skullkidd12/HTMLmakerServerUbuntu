@@ -22,6 +22,7 @@ app.post("/MakeHTML", (req, res) => {
     const content = req.body.componente;
     const footer = require(path.join(__dirname, "footer.js"));
 
+    //aqui eu escrevo a primeira parte do HTML, e pego o input do HEX da cor do background
     const escreveHTMLbody1 = () => {
         let bgcolor = "";
         if (req.body.background) {
@@ -29,17 +30,13 @@ app.post("/MakeHTML", (req, res) => {
         } else {
             bgcolor = "#f6f6f6";
         }
+      
         fs.writeFileSync(
             path.join(__dirname, "views", "template.njk"),
-            `<!doctype html>\n<html>\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">\n<title>Amigão</title>\n<style>\nbody{margin:0; padding:0}\nimg{margin:0; padding:0; }\na[href^=tel]{ color:#666666; text-decoration:none;}\na[href^=date]{ color:#666666; text-decoration:none;}\nhr {margin:0 !important}\ndiv, p, a, li, td {-webkit-text-size-adjust:none;}\n.inlineblock>tbody,\n.inlineblock>tbody>tr,\n.inlineblock>tbody>tr>td {display: block; width: 100%}\n@media only screen and (max-width: 600px) {\nimgmobile{max-width: 70%}\n}\n</style>\n</head>\n<body>\n<div style="margin:0; padding:0;" bgcolor="#ffffff">\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed;" bgcolor="#F6F6F6"><tr><td align="center" valign="top">\n<!--[if mso]><table width="650" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" valign="top"><![endif]-->\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:650px" bgcolor="${bgcolor}">`
+            `<!doctype html>\n<html>\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">\n<title>Document</title>\n<style>\nbody{margin:0; padding:0}\nimg{margin:0; padding:0; }\na[href^=tel]{ color:#666666; text-decoration:none;}\na[href^=date]{ color:#666666; text-decoration:none;}\nhr {margin:0 !important}\ndiv, p, a, li, td {-webkit-text-size-adjust:none;}\n.inlineblock>tbody,\n.inlineblock>tbody>tr,\n.inlineblock>tbody>tr>td {display: block; width: 100%}\n@media only screen and (max-width: 600px) {\nimgmobile{max-width: 70%}\n}\n</style>\n</head>\n<body>\n<div style="margin:0; padding:0;" bgcolor="#ffffff">\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed;" bgcolor="#F6F6F6"><tr><td align="center" valign="top">\n<!--[if mso]><table width="650" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" valign="top"><![endif]-->\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:650px" bgcolor="${bgcolor}">`
         );
     };
-
-    app.post("/debug",(req,res) => {
-      const teste = req.body;
-      res(console.log(teste))
-    })
-
+    //aqui eu pego o nome dos componentes e coloco no corpo do arquivo template.njk 
     const escreveContent = () => {
         for (let i = 0; i < content.length; i++) {
             const element = content[i];
@@ -50,6 +47,7 @@ app.post("/MakeHTML", (req, res) => {
         }
     };
 
+    //aqui eu escrevo a ultima parte do html lá no arquivo template.njk
     const criaTemplate = () => {
         escreveHTMLbody1();
         escreveContent();
@@ -59,11 +57,12 @@ app.post("/MakeHTML", (req, res) => {
         );
     };
 
+
     criaTemplate();
     res.redirect("https://emailmaker-server.onrender.com/download");
 });
 
-//compila o HTML e disponibiliza download
+//essa rota aqui compila o arquivo .njk num arquivo .html e disponibiliza download
 app.get("/download", (req, res) => {
     var html = nunjucks.render("template.njk");
     fs.writeFileSync(path.join(__dirname, "output.html"), html);
