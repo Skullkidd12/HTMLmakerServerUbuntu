@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const nunjucks = require("nunjucks");
 const path = require("path");
+const { send } = require("process");
 const templatesDir = path.join(__dirname, "views");
 //const serverless = require("serverless-http");
 app.use(cors());
@@ -21,6 +22,10 @@ nunjucks.configure(templatesDir, {
     watch: true,
 });
 
+
+app.get("/",(req,res)=>{
+   res.send("boa fiote")
+})
 //escreve o arquivo template njk baseado nos inputs do forms
 app.post("/MakeHTML", (req, res) => {
     const content = req.body.componente;
