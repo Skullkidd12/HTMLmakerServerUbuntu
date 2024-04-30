@@ -61,7 +61,7 @@ app.post("/MakeHTML", (req, res) => {
         escreveHTMLbody1();
         escreveContent();
         fs.appendFileSync(
-            path.join(__dirname, "views", "template.njk"),
+            path.join(__dirname, "views","/tmp", "template.njk"),
             footer.HTMLbody2
         );
     };
@@ -75,7 +75,7 @@ app.post("/MakeHTML", (req, res) => {
 //essa rota aqui compila o arquivo .njk num arquivo .html e disponibiliza download
 app.get("/download", (req, res) => {
     var html = nunjucks.render("template.njk");
-    fs.writeFileSync(path.join(__dirname, "output.html"), html);
+    fs.writeFileSync(path.join(__dirname,"/tmp", "output.html"), html);
     console.log('renderizou html');
     res.download(
         path.join(__dirname, "output.html"),
