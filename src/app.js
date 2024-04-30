@@ -11,6 +11,10 @@ app.use(cors());
 app.use(express.text());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use((req,res,next)=>{
+   console.log(`${req.method}:${req.url}`);
+   next();
+})
 nunjucks.configure(templatesDir, {
     autoescape: true,
     express: app,
@@ -59,6 +63,7 @@ app.post("/MakeHTML", (req, res) => {
 
 
     criaTemplate();
+    console.log('terminou de escrever .njk');
     res.redirect("https://emailmaker-server.onrender.com/download");
 });
 
@@ -66,6 +71,7 @@ app.post("/MakeHTML", (req, res) => {
 app.get("/download", (req, res) => {
     var html = nunjucks.render("template.njk");
     fs.writeFileSync(path.join(__dirname, "output.html"), html);
+    console.log('renderizou html');
     res.download(
         path.join(__dirname, "output.html"),
         "template.html",
@@ -77,6 +83,7 @@ app.get("/download", (req, res) => {
             }
         }
     );
+    console.log('disponibilizou download');
 });
 
 //escreve o arquivo template njk baseado nos inputs do forms e joga pro preview
@@ -117,6 +124,7 @@ app.post("/MakePreview", (req, res) => {
    };
 
    criaTemplate();
+   console.log('terminou de escrever .njk');
    res.redirect("https://emailmaker-server.onrender.com/preview");
 });
 
@@ -124,6 +132,7 @@ app.post("/MakePreview", (req, res) => {
 app.get("/preview", (req, res) => {
    var html = nunjucks.render("template.njk");
    fs.writeFileSync(path.join(__dirname, "output.html"), html);
+   console.log('renderizou html e liberou preview');
    res.sendFile(
        path.join(__dirname, "output.html"),
        "template.html",
@@ -141,6 +150,5 @@ const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
-
 
 //module.exports.handler = serverless(app);
