@@ -23,8 +23,8 @@ nunjucks.configure(templatesDir, {
 });
 
 
-app.get("/",(req,res)=>{
-   res.send("boa fiotea")
+app.get("/wake",(req,res)=>{
+   res.send(200)
 })
 //escreve o arquivo template njk baseado nos inputs do forms
 app.post("/MakeHTML", (req, res) => {
