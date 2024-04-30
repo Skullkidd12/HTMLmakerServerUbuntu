@@ -24,7 +24,7 @@ nunjucks.configure(templatesDir, {
 
 
 app.get("/",(req,res)=>{
-   res.send("boa fiote")
+   res.send("boa fiotea")
 })
 //escreve o arquivo template njk baseado nos inputs do forms
 app.post("/MakeHTML", (req, res) => {
