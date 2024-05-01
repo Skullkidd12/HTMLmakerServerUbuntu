@@ -69,7 +69,7 @@ app.post("/MakeHTML", (req, res) => {
 
     criaTemplate();
     console.log('terminou de escrever .njk');
-    res.redirect("https://emailmaker-server.onrender.com/download");
+    res.redirect("https://emailmaker-server-ohio.onrender.com/download");
 });
 
 //essa rota aqui compila o arquivo .njk num arquivo .html e disponibiliza download
@@ -130,7 +130,7 @@ app.post("/MakePreview", (req, res) => {
 
    criaTemplate();
    console.log('terminou de escrever .njk');
-   res.redirect("https://emailmaker-server.onrender.com/preview");
+   res.redirect("https://emailmaker-server-ohio.onrender.com/preview");
 });
 
 //compila o HTML e disponibiliza o preview
