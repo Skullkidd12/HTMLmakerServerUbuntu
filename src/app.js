@@ -5,9 +5,8 @@ const bodyParser = require("body-parser");
 const app = express();
 const nunjucks = require("nunjucks");
 const path = require("path");
-const { send } = require("process");
 const templatesDir = path.join(__dirname, "views");
-//const serverless = require("serverless-http");
+const cron = require('node-cron');
 app.use(cors());
 app.use(express.text());
 app.use(express.json());
@@ -22,10 +21,16 @@ nunjucks.configure(templatesDir, {
     watch: true,
 });
 
+cron.schedule('*/8 * * * *', async function() {
+    fetch('https://emailmaker-server-ohio.onrender.com/wake',)
+    .catch(err =>{console.log(err)});
+ });
 
 app.get("/wake",(req,res)=>{
+   console.log('recebido wake')
    res.sendStatus(200)
 })
+
 //escreve o arquivo template njk baseado nos inputs do forms
 app.post("/MakeHTML", (req, res) => {
     const content = req.body.componente;
@@ -156,4 +161,3 @@ app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
 
-//module.exports.handler = serverless(app);
