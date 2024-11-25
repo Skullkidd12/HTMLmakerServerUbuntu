@@ -42,7 +42,7 @@ app.post("/MakeHTML", (req, res) => {
         if (req.body.background) {
             bgcolor = req.body.background;
         } else {
-            bgcolor = "#112E48";
+            bgcolor = "#002747";
         }
         
         if(content[0]=='COOP_header_super'){
