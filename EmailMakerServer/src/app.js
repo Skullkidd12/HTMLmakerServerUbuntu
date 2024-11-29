@@ -72,9 +72,15 @@ app.post("/MakeHTML", (req, res) => {
     const criaTemplate = () => {
         escreveHTMLbody1();
         escreveContent();
+        let lineColor= '';
+        if((content[0]=='COOP_header_super')){
+         lineColor = '#ff6f55'
+      }else if (content[0]=='COOP_header_droga'){
+         lineColor = '#3cc86e'
+      };
         fs.appendFileSync(
             path.join(__dirname, "views", "template.njk"),
-            footer.HTMLbody2
+            `</table>\n<!--[if mso]></td></tr></table><![endif]-->\n<tr><td align="center" valign="top" bgcolor="${lineColor}" style="padding: 5px"></td></tr>\n</td></tr></table>\n</div>\n</body>\n</html>`
         );
     };
 
