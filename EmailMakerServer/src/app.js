@@ -33,8 +33,11 @@ app.get("/wake",(req,res)=>{
 
 //escreve o arquivo template njk baseado nos inputs do forms
 app.post("/MakeHTML", (req, res) => {
-    console.log(req.body)
+    console.log(req.body);
     const content = req.body.componente;
+    if(content.includes(undefined)){
+      console.log('array invalido');
+    }
     const footer = require(path.join(__dirname, "footer.js"));
 
     //aqui eu escrevo a primeira parte do HTML, e pego o input do HEX da cor do background
