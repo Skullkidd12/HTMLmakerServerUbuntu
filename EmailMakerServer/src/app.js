@@ -33,6 +33,7 @@ app.get("/wake",(req,res)=>{
 
 //escreve o arquivo template njk baseado nos inputs do forms
 app.post("/MakeHTML", (req, res) => {
+    console.log(req.body)
     const content = req.body.componente;
     const footer = require(path.join(__dirname, "footer.js"));
 
