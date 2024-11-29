@@ -35,7 +35,7 @@ app.get("/wake",(req,res)=>{
 app.post("/MakeHTML", (req, res) => {
     console.log(req.body);
     const content = req.body.componente;
-    if(content.includes(undefined)){
+    if(content.includes('')){
       console.log('array invalido');
     }
     const footer = require(path.join(__dirname, "footer.js"));
