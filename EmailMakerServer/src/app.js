@@ -37,7 +37,7 @@ app.post("/MakeHTML", (req, res) => {
     const content = req.body.componente;
     if(content.includes('')){
       console.log('array invalido');
-      return
+      res.send(200);
     }
     const footer = require(path.join(__dirname, "footer.js"));
 
@@ -120,7 +120,7 @@ app.post("/MakePreview", (req, res) => {
    const footer = require(path.join(__dirname, "footer.js"));
    if(content.includes('')){
       console.log('array invalido');
-      return
+      res.send(200);
     }
 //aqui eu escrevo a primeira parte do HTML, e pego o input do HEX da cor do background
 const escreveHTMLbody1 = () => {
