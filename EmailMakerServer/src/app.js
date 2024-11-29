@@ -37,6 +37,7 @@ app.post("/MakeHTML", (req, res) => {
     const content = req.body.componente;
     if(content.includes('')){
       console.log('array invalido');
+      return
     }
     const footer = require(path.join(__dirname, "footer.js"));
 
