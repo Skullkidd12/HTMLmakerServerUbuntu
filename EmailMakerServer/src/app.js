@@ -118,6 +118,10 @@ app.get("/download", (req, res) => {
 app.post("/MakePreview", (req, res) => {
    const content = req.body.componente;
    const footer = require(path.join(__dirname, "footer.js"));
+   if(content.includes('')){
+      console.log('array invalido');
+      return
+    }
 //aqui eu escrevo a primeira parte do HTML, e pego o input do HEX da cor do background
 const escreveHTMLbody1 = () => {
    let bgcolor = "";
