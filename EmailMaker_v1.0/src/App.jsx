@@ -17,7 +17,7 @@ function App() {
                 <Button />
             </form>
          </div>
-         <div className='mx-4 flex'>
+         <div className='mx-4 flex my-3'>
             <iframe name='frame' className="iframe">
             </iframe>
          </div> 

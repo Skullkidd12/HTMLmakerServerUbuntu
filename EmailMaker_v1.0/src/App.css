@@ -2,25 +2,25 @@
 #root {
   max-width: 2800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding:0rem;
   text-align: center;
 }
 
 .pageWRAP{
    display: flex;
-   align-items: center;
+   align-items: top;
    justify-content: center;
    width: 100vw;
    height: 100vh;
 }
 
 .iframe{
-   width: 750px;
-   height: 80vh;
+   width: 700px;
+   height: 90vh;
 }
 
 .formsWRAP{
-   height: 100vh;
+   height:100%;
    display: flex;
    min-width: 530px;
    align-items: center;
