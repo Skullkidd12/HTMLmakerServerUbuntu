@@ -39,7 +39,24 @@ app.post("/MakeHTML", (req, res) => {
       console.log('array invalido');
       res.send('');
     }
-    const footer = require(path.join(__dirname, "footer.js"));
+    let lineColor = '#EFEFEF';
+      switch (content[0]) {
+      case 'coop_header_super'||'coop_header_super_site':
+         lineColor = '#FA6e50'
+         break;
+      case 'coop_header_droga'||'coop_header_droga_site':
+         lineColor = '#3cc86e'
+         break;
+      case 'coop_header_atacarejo'||'coop_header_institucional':
+         lineColor = '#C83C46'
+         break;
+         case 'coop_header_emporio':
+         lineColor = '#ADA08A'
+         break;
+      default:
+         lineColor = '#efefef'
+         break;
+      }
 
     //aqui eu escrevo a primeira parte do HTML, e pego o input do HEX da cor do background
     const escreveHTMLbody1 = () => {
@@ -49,18 +66,10 @@ app.post("/MakeHTML", (req, res) => {
         } else {
             bgcolor = "#002747";
         }
-        
-        if(content[0]=='coop_header_super'){
         fs.writeFileSync(
             path.join(__dirname, "views", "template.njk"),
-            `<!doctype html>\n<html>\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">\n<title>Document</title>\n<style>\nbody{margin:0; padding:0}\nimg{margin:0; padding:0; }\na[href^=tel]{ color:#666666; text-decoration:none;}\na[href^=date]{ color:#666666; text-decoration:none;}\nhr {margin:0 !important}\ndiv, p, a, li, td {-webkit-text-size-adjust:none;}\n.inlineblock>tbody,\n.inlineblock>tbody>tr,\n.inlineblock>tbody>tr>td {display: block; width: 100%}\n@media only screen and (max-width: 600px) {\nimgmobile{max-width: 70%}\n}\n</style>\n</head>\n<body>\n<div style="margin:0; padding:0;" bgcolor="#EFEFEF">\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed; border-top: 9px solid #FA6e50;" bgcolor="#EFEFEF"><tr><td align="center" valign="top">\n<!--[if mso]><table width="680" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" valign="top"><![endif]-->\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="${bgcolor}">`
-        );}else if(content[0]=='coop_header_droga'){
-         fs.writeFileSync(
-            path.join(__dirname, "views", "template.njk"),
-            `<!doctype html>\n<html>\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">\n<title>Document</title>\n<style>\nbody{margin:0; padding:0}\nimg{margin:0; padding:0; }\na[href^=tel]{ color:#666666; text-decoration:none;}\na[href^=date]{ color:#666666; text-decoration:none;}\nhr {margin:0 !important}\ndiv, p, a, li, td {-webkit-text-size-adjust:none;}\n.inlineblock>tbody,\n.inlineblock>tbody>tr,\n.inlineblock>tbody>tr>td {display: block; width: 100%}\n@media only screen and (max-width: 600px) {\nimgmobile{max-width: 70%}\n}\n</style>\n</head>\n<body>\n<div style="margin:0; padding:0;" bgcolor="#EFEFEF">\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed;border-top: 9px solid #3cc86e;" bgcolor="#EFEFEF"><tr><td align="center" valign="top">\n<!--[if mso]><table width="680" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" valign="top"><![endif]-->\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="${bgcolor}">`
+            `<!doctype html>\n<html>\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">\n<title>Document</title>\n<style>\nbody{margin:0; padding:0}\nimg{margin:0; padding:0; }\na[href^=tel]{ color:#666666; text-decoration:none;}\na[href^=date]{ color:#666666; text-decoration:none;}\nhr {margin:0 !important}\ndiv, p, a, li, td {-webkit-text-size-adjust:none;}\n.inlineblock>tbody,\n.inlineblock>tbody>tr,\n.inlineblock>tbody>tr>td {display: block; width: 100%}\n@media only screen and (max-width: 600px) {\nimgmobile{max-width: 70%}\n}\n</style>\n</head>\n<body>\n<div style="margin:0; padding:0;" bgcolor="#EFEFEF">\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed; border-top: 9px solid ${lineColor};" bgcolor="#EFEFEF"><tr><td align="center" valign="top">\n<!--[if mso]><table width="680" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" valign="top"><![endif]-->\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="${bgcolor}">`
         );
-         
-        }
     };
     //aqui eu pego o nome dos componentes e coloco no corpo do arquivo template.njk 
     const escreveContent = () => {
@@ -77,12 +86,6 @@ app.post("/MakeHTML", (req, res) => {
     const criaTemplate = () => {
         escreveHTMLbody1();
         escreveContent();
-        let lineColor= '';
-        if((content[0]=='coop_header_super')){
-         lineColor = '#ff6f55'
-      }else if (content[0]=='coop_header_droga'){
-         lineColor = '#3cc86e'
-      };
         fs.appendFileSync(
             path.join(__dirname, "views", "template.njk"),
             `</table>\n<!--[if mso]></td></tr></table><![endif]-->\n<tr><td align="center" valign="top" bgcolor="${lineColor}" style="padding: 5px"></td></tr>\n</td></tr></table>\n</div>\n</body>\n</html>`
