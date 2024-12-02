@@ -50,11 +50,8 @@ app.post("/MakeHTML", (req, res) => {
       case 'coop_header_atacarejo'||'coop_header_institucional':
          lineColor = '#C83C46'
          break;
-         case 'coop_header_emporio':
+      case 'coop_header_emporio':
          lineColor = '#ADA08A'
-         break;
-      default:
-         lineColor = '#efefef'
          break;
       }
 
