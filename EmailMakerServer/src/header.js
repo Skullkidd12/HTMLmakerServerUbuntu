@@ -3,6 +3,7 @@ const header = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="plusoft-tpl">
 <title>Amigão</title>
 <style>
 body{margin:0; padding:0}
