@@ -179,7 +179,7 @@ app.post("/MakePreview", (req, res) => {
            bgcolor = "#002747";
        }
        if(content[0]=='ZonaSul_Header') {
-         bgcolor= "#ffffff";
+         
          fs.writeFileSync(
             path.join(__dirname, "views", "template.njk"),
             `<!doctype html>\n<html>\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">\n<title>Zona Sul</title>\n<style>\nbody{margin:0; padding:0}\nimg{margin:0; padding:0; }\na[href^=tel]{ color:#666666; text-decoration:none;}\na[href^=date]{ color:#666666; text-decoration:none;}\nhr {margin:0 !important}\ndiv, p, a, li, td {-webkit-text-size-adjust:none;}\n.inlineblock>tbody,\n.inlineblock>tbody>tr,\n.inlineblock>tbody>tr>td {display: block; width: 100%}\n.menuheader{display: inline-table;}\n\n@media only screen and (max-device-width: 450px){\n}\n</style>\n</head>\n<body>\n<div style="margin:0; padding:0;" bgcolor="#ffffff">\n<div style="font-size:0px;line-height:1px;mso-line-height-rule:exactly;display:none;max-width:0px;max-height:0px;opacity:0;overflow:hidden;mso-hide:all;">\n##PREHEADER##\n</div>\n\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed" bgcolor="#F4F4F4"><tr><td align="center" valign="top">\n\n<!--[if mso]><table width="680" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" valign="top"><![endif]-->\n<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="${bgcolor}">\n`);
