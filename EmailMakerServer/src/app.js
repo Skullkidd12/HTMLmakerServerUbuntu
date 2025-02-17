@@ -178,7 +178,7 @@ app.post("/MakePreview", (req, res) => {
        } else {
            bgcolor = "#002747";
        }
-       if(content[0]=='ZonaSul_header') {
+       if(content[0]=='zonasul_header') {
          bgcolor= "#ffffff";
          fs.writeFileSync(
             path.join(__dirname, "views", "template.njk"),
@@ -208,7 +208,7 @@ app.post("/MakePreview", (req, res) => {
        escreveContent();
        fs.appendFileSync(
            path.join(__dirname, "views", "template.njk"),
-           `</table>\n<!--[if mso]></td></tr></table><![endif]-->\n<tr><td align="center" valign="top" bgcolor="${lineColor}" style="padding: 5px"></td></tr>\n</td></tr></table>\n</div>\n</body>\n</html>`
+           `\n</table>\n<!--[if mso]></td></tr></table><![endif]-->\n<tr><td align="center" valign="top" bgcolor="${lineColor}" style="padding: 5px"></td></tr>\n</td></tr></table>\n</div>\n</body>\n</html>`
        );
    };
 
