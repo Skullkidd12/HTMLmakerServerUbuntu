@@ -40,25 +40,25 @@ app.post("/MakeHTML", (req, res) => {
       res.send('');
     } 
    switch (content[0]) {
-   case 'coop_header_super':
+   case 'coop_headerSuper':
       lineColor = '#FA6e50'
       break;
-   case 'coop_header_super_site':
+   case 'coop_headerSuperSite':
       lineColor = '#FA6e50'
       break;
-   case 'coop_header_droga':
+   case 'coop_headerDroga':
       lineColor = '#3cc86e'
       break;
-   case 'coop_header_droga_site':
+   case 'coop_headerDrogaSite':
       lineColor = '#3cc86e'
       break;
-   case 'coop_header_atacarejo':
+   case 'coop_headerAtacarejo':
       lineColor = '#C83C46'
       break;
-   case 'coop_header_institucional':
+   case 'coop_headerInstitucional':
       lineColor = '#C83C46'
       break;
-   case 'coop_header_emporio':
+   case 'coop_headerEmporio':
       lineColor = '#ADA08A'
       break;
    default:
@@ -143,32 +143,32 @@ app.post("/MakePreview", (req, res) => {
      console.log('array invalido');
      res.send('');
    } 
-     switch (content[0]) {
-     case 'coop_header_super':
-        lineColor = '#FA6e50'
-        break;
-     case 'coop_header_super_site':
-        lineColor = '#FA6e50'
-        break;
-     case 'coop_header_droga':
-        lineColor = '#3cc86e'
-        break;
-     case 'coop_header_droga_site':
-        lineColor = '#3cc86e'
-        break;
-     case 'coop_header_atacarejo':
-        lineColor = '#C83C46'
-        break;
-     case 'coop_header_institucional':
-        lineColor = '#C83C46'
-        break;
-     case 'coop_header_emporio':
-        lineColor = '#ADA08A'
-        break;
-     default:
-        lineColor = '#EFEFEF'
-        break
-     }
+   switch (content[0]) {
+      case 'coop_headerSuper':
+         lineColor = '#FA6e50'
+         break;
+      case 'coop_headerSuperSite':
+         lineColor = '#FA6e50'
+         break;
+      case 'coop_headerDroga':
+         lineColor = '#3cc86e'
+         break;
+      case 'coop_headerDrogaSite':
+         lineColor = '#3cc86e'
+         break;
+      case 'coop_headerAtacarejo':
+         lineColor = '#C83C46'
+         break;
+      case 'coop_headerInstitucional':
+         lineColor = '#C83C46'
+         break;
+      case 'coop_headerEmporio':
+         lineColor = '#ADA08A'
+         break;
+      default:
+         lineColor = '#EFEFEF'
+         break
+      }
 
    //aqui eu escrevo a primeira parte do HTML, e pego o input do HEX da cor do background
    const escreveHTMLbody1 = () => {
