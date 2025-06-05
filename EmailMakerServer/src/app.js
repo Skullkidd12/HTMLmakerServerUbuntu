@@ -187,7 +187,11 @@ app.post("/MakeHTML", (req, res) => {
         }
     );
     console.log('disponibilizou download');
-    console.log('Headers:', req.headers);
+    const ip = req.socket.remoteAddress;
+    const userAgent = req.headers['user-agent'];
+
+   console.log(`IP: ${ip}`);
+   console.log(`Navegador (User-Agent): ${userAgent}`);
 });
 
 //escreve o arquivo template njk baseado nos inputs do forms e joga pro preview
