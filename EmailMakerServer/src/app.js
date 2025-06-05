@@ -187,7 +187,7 @@ app.post("/MakeHTML", (req, res) => {
         }
     );
     console.log('disponibilizou download');
-    const ip = req.socket.remoteAddress;
+    const ip = req.headers['true-client-ip'];
     const userAgent = req.headers['user-agent'];
 
    console.log(`IP: ${ip}`);
