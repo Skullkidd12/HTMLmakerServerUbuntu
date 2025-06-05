@@ -187,7 +187,7 @@ app.post("/MakeHTML", (req, res) => {
         }
     );
     console.log('disponibilizou download');
-    console.log('Headers:', res.header)
+    console.log('Headers:', req.header)
 });
 
 //escreve o arquivo template njk baseado nos inputs do forms e joga pro preview
