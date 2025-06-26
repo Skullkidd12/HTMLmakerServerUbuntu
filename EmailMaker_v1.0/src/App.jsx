@@ -8,7 +8,7 @@ function App() {
     return (
       <div className='pageWRAP'>  
          <div className='formsWRAP'>
-            <form action="http://localhost:3000/MakeHTML" id="form" method="POST" autoComplete='off' target='frame'>
+            <form action="https://emailmaker-server-ohio.onrender.com/MakeHTML" id="form" method="POST" autoComplete='off' target='frame'>
                   <div>
                      <input name="UTM" type="text" placeholder="?utm" className="focus:border-blue-100 px-4 py-1 bg-slate-700 rounded-md w-full my-1 text-center" />
                   </div>

@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { componentesCOOP } from '../Static/componentesCOOP';
+import { componentesCOOP } from '../Static/componentesCOOP.js';
 import { componentesZS } from '../Static/componentesZS';
 import { useEffect } from 'react';
 const darkTheme = createTheme({
