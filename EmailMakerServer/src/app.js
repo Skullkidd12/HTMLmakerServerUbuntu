@@ -27,7 +27,6 @@ cron.schedule('*/8 * * * *', async function() {
  });
 
 app.get("/wake",(req,res)=>{
-   console.log('recebido wake')
    res.sendStatus(200)
 })
 
@@ -187,11 +186,37 @@ app.post("/MakeHTML", (req, res) => {
         }
     );
     console.log('disponibilizou download');
-    const ip = req.headers['true-client-ip'];
-    const userAgent = req.headers['user-agent'];
-
-   console.log(`IP: ${ip}`);
-   console.log(`Navegador (User-Agent): ${userAgent}`);
+    let ip = "Desconhecido";
+    const ipNumber = req.headers['true-client-ip']
+    
+    switch (req.headers['true-client-ip']) {
+      case "181.222.41.166":
+         ip = 'Renan'
+         break;
+      case "45.185.24.140":
+         ip = 'Luiz'
+         break;
+      case "177.37.171.177":
+         ip = 'Gabi'
+         break;
+      case "152.243.34.142":
+         ip = 'Matheus'
+         break;
+      case "179.98.33.203":
+         ip = 'Marina'
+         break;
+      case "177.131.72.126":
+         ip = 'Phany'
+         break;
+      case "177.115.30.231":
+         ip = 'Jonathan'
+         break;
+      default:
+         break;
+    }
+    console.log(`IP: ${ipNumber}`);
+    console.log(`Designer ${ip}`);
+   
 });
 
 //escreve o arquivo template njk baseado nos inputs do forms e joga pro preview
@@ -347,7 +372,33 @@ app.post("/MakePreview", (req, res) => {
            }
        }
    );
-
+   switch (req.headers['true-client-ip']) {
+   case "181.222.41.166":
+      ip = 'Renan'
+      break;
+   case "45.185.24.140":
+      ip = 'Luiz'
+      break;
+   case "177.37.171.177":
+      ip = 'Gabi'
+      break;
+   case "152.243.34.142":
+      ip = 'Matheus'
+      break;
+   case "179.98.33.203":
+      ip = 'Marina'
+      break;
+   case "177.131.72.126":
+      ip = 'Phany'
+      break;
+   case "177.115.30.231":
+      ip = 'Jonathan'
+      break;
+   default:
+      break;
+   }
+   console.log(`IP: ${ipNumber}`);
+   console.log(`Designer ${ip}`);
 });
 
 const port = process.env.PORT || 3000;

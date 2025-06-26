@@ -1,0 +1,3 @@
+const componentesZS = [{component:"zonasul_header"},{component:"zonasul_hero"},{component:"zonasul_texto"},{component:"zonasul_vitrine_chamada"},{component:"zonasul_vitrine_01prod"},{component:"zonasul_vitrine_04prod"},{component:"zonasul_vitrine_06prod"},{component:"zonasul_vitrine_08prod"},{component:"zonasul_vitrine_10prod"},{component:"zonasul_vitrine_12prod"},{component:"zonasul_vitrine_cta"},{component:"zonasul_chamada"},{component:"zonasul_conteudoPadrao"},{component:"zonasul_encerramento"},{component:"zonasul_banner"},{component:"zonasul_footer"}];
+
+export {componentesZS}
