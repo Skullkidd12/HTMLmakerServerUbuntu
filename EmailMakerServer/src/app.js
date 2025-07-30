@@ -186,36 +186,7 @@ app.post("/MakeHTML", (req, res) => {
         }
     );
     console.log('disponibilizou download');
-    let ip = "Desconhecido";
-    const ipNumber = req.headers['true-client-ip']
     
-    switch (req.headers['true-client-ip']) {
-      case "181.222.41.166":
-         ip = 'Renan'
-         break;
-      case "45.185.24.140":
-         ip = 'Luiz'
-         break;
-      case "177.37.171.177":
-         ip = 'Gabi'
-         break;
-      case "152.243.34.142":
-         ip = 'Matheus'
-         break;
-      case "179.98.33.203":
-         ip = 'Marina'
-         break;
-      case "177.131.72.126":
-         ip = 'Phany'
-         break;
-      case "177.115.30.231":
-         ip = 'Jonathan'
-         break;
-      default:
-         break;
-    }
-    console.log(`IP: ${ipNumber}`);
-    console.log(`Designer ${ip}`);
    
 });
 
@@ -372,36 +343,6 @@ app.post("/MakePreview", (req, res) => {
            }
        }
    );
-   let ip = "Desconhecido";
-    const ipNumber = req.headers['true-client-ip']
-    
-    switch (req.headers['true-client-ip']) {
-      case "181.222.41.166":
-         ip = 'Renan'
-         break;
-      case "45.185.24.140":
-         ip = 'Luiz'
-         break;
-      case "177.37.171.177":
-         ip = 'Gabi'
-         break;
-      case "152.243.34.142":
-         ip = 'Matheus'
-         break;
-      case "179.98.33.203":
-         ip = 'Marina'
-         break;
-      case "177.131.72.126":
-         ip = 'Phany'
-         break;
-      case "177.115.30.231":
-         ip = 'Jonathan'
-         break;
-      default:
-         break;
-    }
-    console.log(`IP: ${ipNumber}`);
-    console.log(`Designer ${ip}`);
 });
 
 const port = process.env.PORT || 3000;
