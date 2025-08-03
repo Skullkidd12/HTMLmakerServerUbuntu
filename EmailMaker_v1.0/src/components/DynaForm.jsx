@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { componentesCOOP } from '../Static/componentesCOOP.js';
 import { componentesZS } from '../Static/componentesZS';
+import { componentesGERAL } from '../Static/componentesGERAL.js';
 import { useEffect } from 'react';
 const darkTheme = createTheme({
    palette: {
@@ -22,6 +23,8 @@ function DynaForm() {
       setComponentsNames(componentesCOOP);
       } else if (cliente === 'ZonaSul') {
       setComponentsNames(componentesZS);
+      } else if (cliente ==='Geral') {
+         setComponentsNames(componentesGERAL);
       }
    }, [cliente]);
   
@@ -66,6 +69,7 @@ function DynaForm() {
       >
       <option value="COOP">COOP</option>
       <option value="ZonaSul">ZonaSul</option>
+      <option value="Geral">Geral</option>
       </select>
 
       {inputFields.map((input, index) => {
