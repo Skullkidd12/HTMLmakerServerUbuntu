@@ -24,7 +24,7 @@ nunjucks.configure(templatesDir, {
     watch: true,
 });
 cron.schedule('*/8 * * * *', async function() {
-    fetch('http://localhost:3000/wake',)
+    fetch('https://emailmaker-server-ohio.onrender.com/wake',)
     .catch(err =>{console.log(err)});
  });
 app.get("/wake",(req,res)=>{
