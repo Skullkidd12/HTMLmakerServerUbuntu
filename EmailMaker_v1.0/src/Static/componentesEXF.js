@@ -1,0 +1,3 @@
+const componentesEXF = [{component:"EXF_header"},{component:"EXF_hero"},{component:"EXF_chamada"},{component:"EXF_texto"},{component:"EXF_Vitrine01"},{component:"EXF_Vitrine03Grande"},{component:"EXF_Vitrine03Pequeno"},{component:"EXF_Vitrine04"},{component:"EXF_Vitrine06"},{component:"EXF_cta"},{component:"EXF_ctaDuplo"},{component:"EXF_encerramento"},{component:"EXF_Box01"},{component:"EXF_Box02"},{component:"EXF_Box03"},{component:"EXF_footer"}];
+
+export {componentesEXF}

@@ -1,0 +1,3 @@
+const componentesFPM = [{component:"FPM_header"},{component:"FPM_hero"},{component:"FPM_chamada"},{component:"FPM_texto"},{component:"FPM_Vitrine01"},{component:"FPM_Vitrine03Grande"},{component:"FPM_Vitrine03Pequeno"},{component:"FPM_Vitrine04"},{component:"FPM_Vitrine06"},{component:"FPM_cta"},{component:"FPM_ctaDuplo"},{component:"FPM_encerramento"},{component:"FPM_Box01"},{component:"FPM_Box02"},{component:"FPM_Box03"},{component:"FPM_footer"}];
+
+export {componentesFPM}

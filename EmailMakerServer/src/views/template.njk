@@ -1,9 +1,9 @@
 <!doctype html>
-<html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-<title>Amigão</title>
+<title>Farmácias Pague Menos</title>
 <style>
 body{margin:0; padding:0}
 img{margin:0; padding:0; }
@@ -11,25 +11,59 @@ a[href^=tel]{ color:#666666; text-decoration:none;}
 a[href^=date]{ color:#666666; text-decoration:none;}
 hr {margin:0 !important}
 div, p, a, li, td {-webkit-text-size-adjust:none;}
-.inlineblock>tbody,
-.inlineblock>tbody>tr,
-.inlineblock>tbody>tr>td {display: block; width: 100%}
-@media only screen and (max-width: 600px) {
-imgmobile{max-width: 70%}
-}
 </style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">QA7UY62FZWNU-450026745-66730</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">bcb93950-5386-427d-b15c-ea5acc77019f</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://plusoft.sharepoint.com/sites/Fileserver_DTM-Criacao/_layouts/15/DocIdRedir.aspx?ID=QA7UY62FZWNU-450026745-66730, QA7UY62FZWNU-450026745-66730</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
 </head>
 <body>
+%%[
+SET @TipoLike = 'https://cloud.email.paguemenos.com.br/avaliacao?tipo=LIKE&qs1='
+SET @TipoDislike = 'https://cloud.email.paguemenos.com.br/avaliacao?tipo=DISLIKE&qs1='
+SET @Subscriber = AttributeValue("subscriberkey")
+SET @EmailAddress = AttributeValue("Emailaddr")
+SET @JobId = AttributeValue("JobId")
+SET @EmailName = AttributeValue("emailname")
+SET @AvaliacaoSubscriber = Base64Encode(@Subscriber)
+SET @AvaliacaoSubscriberConcat = CONCAT(@AvaliacaoSubscriber,'&qs2=')
+SET @AvaliacaoEmailAddress = Base64Encode(@EmailAddress)
+SET @AvaliacaoEmailAddressConcat = CONCAT(@AvaliacaoEmailAddress,'&qs3=')
+SET @AvaliacaoJobid = Base64Encode(@Jobid)
+SET @AvaliacaoJobidConcat = CONCAT(@AvaliacaoJobid,'&qs4=')
+SET @AvaliacaoEmailName = Base64Encode(@EmailName)
+SET @LinkAvaliacaoLike = CONCAT(@TipoLike,@AvaliacaoSubscriberConcat,@AvaliacaoEmailAddressConcat,@AvaliacaoJobidConcat,@AvaliacaoEmailName)
+SET @LinkAvaliacaoDislike = CONCAT(@TipoDislike,@AvaliacaoSubscriberConcat,@AvaliacaoEmailAddressConcat,@AvaliacaoJobidConcat,@AvaliacaoEmailName)
+]%%
 <div style="margin:0; padding:0;" bgcolor="#ffffff">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed;" bgcolor="#F6F6F6"><tr><td align="center" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed;" bgcolor="#E5F2F9"><tr><td align="center" valign="top">
+
 <!--[if mso]><table width="680" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" valign="top"><![endif]-->
-<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="#f6f6f6">
-{% include "./2col-250.njk" %}
-{% include "./2col-250.njk" %}
-{% include "./2col-250.njk" %}
-{% include "./2col-250.njk" %}</table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px">
+
+{% include "./FPM_header.njk" %}
+{% include "./FPM_hero.njk" %}
+{% include "./FPM_texto.njk" %}
+{% include "./FPM_chamada.njk" %}
+{% include "./FPM_Vitrine04.njk" %}
+{% include "./FPM_ctaDuplo.njk" %}
+{% include "./FPM_encerramento.njk" %}
+{% include "./FPM_footer.njk" %}</table>
 <!--[if mso]></td></tr></table><![endif]-->
+
 </td></tr></table>
 </div>
+
+
+<custom name="opencounter" type="tracking"/>
+<style> @media print{ #_two50 { background-image:url('https://paguemenos.everestengagement.com/ea/qmLIlRZvtc/?t=p&e=%%SubscriberID%%'); } } blockquote #_two50, #mailContainerBody #_two50, div.OutlookMessageHeader, table.moz-email-headers-table { background-image:url('https://paguemenos.everestengagement.com/ea/qmLIlRZvtc/?t=f&e=%%SubscriberID%%'); } </style>
+<div id='_two50'></div>
+<img id='_two50_img' src='https://paguemenos.everestengagement.com/ea/qmLIlRZvtc/?e=%%SubscriberID%%' width='1' height='1' style='margin:0 !important; padding:0 !important; border:0 !important; height:1px !important; width:1px !important;' />
+
+
 </body>
 </html>

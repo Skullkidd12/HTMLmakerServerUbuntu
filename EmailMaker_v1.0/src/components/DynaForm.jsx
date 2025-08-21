@@ -6,6 +6,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { componentesCOOP } from '../Static/componentesCOOP.js';
 import { componentesZS } from '../Static/componentesZS';
 import { componentesGERAL } from '../Static/componentesGERAL.js';
+import { componentesFPM } from '../Static/componentesFPM.js';
+import { componentesEXF } from '../Static/componentesEXF.js';
 import { useEffect } from 'react';
 const darkTheme = createTheme({
    palette: {
@@ -23,6 +25,10 @@ function DynaForm() {
       setComponentsNames(componentesCOOP);
       } else if (cliente === 'ZonaSul') {
       setComponentsNames(componentesZS);
+      } else if (cliente ==='FPM') {
+         setComponentsNames(componentesFPM);
+      } else if (cliente ==='EXF') {
+         setComponentsNames(componentesEXF);
       } else if (cliente ==='Geral') {
          setComponentsNames(componentesGERAL);
       }
@@ -69,6 +75,8 @@ function DynaForm() {
       >
       <option value="COOP">COOP</option>
       <option value="ZonaSul">ZonaSul</option>
+      <option value="FPM">FPM</option>
+      <option value="EXF">EXF</option>
       <option value="Geral">Geral</option>
       </select>
 
