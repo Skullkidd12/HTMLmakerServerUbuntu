@@ -66,17 +66,18 @@ const checkBG = (req) => {
    let inputBG = "";
    let tableBgVelhoCOOP = '<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="#002747">'
    let tableBgVelhoZS = '<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="#ffffff">'
-   //let tableBgVelhoFPM = '<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="#0000BE">'
+   let tableBgVelhoFPM = '<td align="center" class="wrap" valign="top" bgcolor="#0000BE" style="font-size: 0; line-height:0; padding: 0px 0px 20px 0px; border-radius: 20px 20px 20px 20px;">'
    let tableBgVelhoEXF = '<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="#662E8D">'
    if (req.body.background){
       console.log('bg encontrado');
       inputBG = req.body.background;
       let tableBgNovo = `<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:680px" bgcolor="${inputBG}">`
+      let tableBgNovoFPM = `<td align="center" class="wrap" valign="top" bgcolor="${inputBG}" style="font-size: 0; line-height:0; padding: 0px 0px 20px 0px; border-radius: 20px 20px 20px 20px;">`
       try {
          const data = fs.readFileSync(path.join(__dirname, "output.html"), 'utf8');
          let correcaoBG = data.replace(tableBgVelhoCOOP, tableBgNovo);
          correcaoBG = correcaoBG.replace(tableBgVelhoZS, tableBgNovo);
-         //correcaoBG = correcaoBG.replace(tableBgVelhoFPM, tableBgNovo);
+         correcaoBG = correcaoBG.replace(tableBgVelhoFPM, tableBgNovoFPM);
          correcaoBG = correcaoBG.replace(tableBgVelhoEXF, tableBgNovo);
          const resultado = correcaoBG;
          console.log('teminou a funcao de correcao')
