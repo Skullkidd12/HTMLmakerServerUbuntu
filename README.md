@@ -44,8 +44,8 @@ cd HTMLmakerServerUbuntu
 ```
 
 O repositório contém duas partes:
-- `server/` → Backend em Express
-- `frontend/` → Frontend em React
+- `EmailMakerServer/` → Backend em Express
+- `EmailMaker_v1.0/` → Frontend em React
 
 ---
 
@@ -53,7 +53,7 @@ O repositório contém duas partes:
 
 ### 4. Instalar dependências
 ```bash
-cd server
+cd EmailMakerServer
 npm install
 ```
 
@@ -73,7 +73,7 @@ http://<ip-da-sua-vm>:3000
 
 ### 6. Instalar dependências
 ```bash
-cd ../frontend
+cd ../EmailMaker_v1.0
 npm install
 ```
 
@@ -99,7 +99,7 @@ http://<ip-da-sua-vm>:8080
 ```
 
 ### Opção B: Integrar o React ao Express
-Edite o `server/app.js` e adicione:
+Edite o `EmailMakerServer/app.js` e adicione:
 ```js
 const path = require("path");
 
